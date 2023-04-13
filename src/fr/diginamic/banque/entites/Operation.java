@@ -16,4 +16,20 @@ public abstract class Operation {
 	}
 
 	public abstract String getType();
+
+	public String getDateOperation() {
+		return dateOperation;
+	}
+
+	public void setDateOperation(String dateOperation) {
+		this.dateOperation = dateOperation;
+	}
+
+	public double getMontantOperation() {
+		return montantOperation;
+	}
+
+	public void setMontantOperation(double montantOperation) {
+		this.montantOperation = montantOperation;
+	}
 }

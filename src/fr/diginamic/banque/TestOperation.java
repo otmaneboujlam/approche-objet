@@ -19,8 +19,16 @@ public class TestOperation {
 			System.out.println(operation + " " + operation.getType());
 		}
 
-		// TODO : Calculer le montant global de toutes les operations.
+		double total = 0d;
 
+		for (Operation operation : tableauOperation) {
+			if (operation.getType() == "DEBIT") {
+				total = total - operation.getMontantOperation();
+			} else {
+				total = total + operation.getMontantOperation();
+			}
+		}
+
+		System.out.println(total);
 	}
-
 }
