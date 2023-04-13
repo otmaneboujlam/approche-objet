@@ -22,7 +22,7 @@ public class TestOperation {
 		double total = 0d;
 
 		for (Operation operation : tableauOperation) {
-			if (operation.getType() == "DEBIT") {
+			if (operation.getType().equals("DEBIT")) {
 				total = total - operation.getMontantOperation();
 			} else {
 				total = total + operation.getMontantOperation();
