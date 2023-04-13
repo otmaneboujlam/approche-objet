@@ -16,7 +16,7 @@ public abstract class Intervenant {
 	public abstract String getStatut();
 
 	public void afficherDonnees() {
-		System.out.println(nom + " " + prenom + " " + this.getSalaire() + " " + this.getStatut());
+		System.out.println(nom + " " + prenom + " " + this.getSalaire() + " " + getStatut());
 	}
 
 	@Override
