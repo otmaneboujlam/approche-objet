@@ -18,6 +18,7 @@ public class TestCombat {
 			switch (choix) {
 			case 1:
 				personnage = new Personnage("Champion", new Random().nextInt(7) + 12, new Random().nextInt(31) + 20, 0);
+				System.out.println(personnage);
 				break;
 			case 2:
 				if (personnage.getPointsVie() >= 0) {
