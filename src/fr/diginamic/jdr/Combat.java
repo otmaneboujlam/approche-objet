@@ -35,18 +35,23 @@ public class Combat {
 				isCombatFini = true;
 			}
 		} while (!isCombatFini);
-		System.out.println(this);
 	}
 
 	public void gererCombat() {
 		if (isCombatFini) {
 			if (isCreatureDefeated) {
-				personnage.setScore(personnage.getScore() + 1);
+				if (creature.getNom().equals("Loup")) {
+					personnage.setScore(personnage.getScore() + 1);
+				} else if (creature.getNom().equals("Gobelin")) {
+					personnage.setScore(personnage.getScore() + 2);
+				} else {
+					personnage.setScore(personnage.getScore() + 5);
+				}
+				System.out.println(this);
 				System.out.println("Victoire");
-				System.out.println(this);
 			} else {
-				System.out.println("Defaite");
 				System.out.println(this);
+				System.out.println("Defaite");
 			}
 		}
 	}
