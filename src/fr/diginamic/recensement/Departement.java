@@ -1,6 +1,6 @@
 package fr.diginamic.recensement;
 
-public class Departement {
+public class Departement implements Comparable<Departement> {
 
 	private int codeRegion;
 	private String nomRegion;
@@ -13,6 +13,11 @@ public class Departement {
 		this.nomRegion = nomRegion;
 		this.codeDepartement = codeDepartement;
 		this.populationDepartementTotale = populationDepartementTotale;
+	}
+
+	@Override
+	public int compareTo(Departement autre) {
+		return autre.getPopulationDepartementTotale() - this.populationDepartementTotale;
 	}
 
 	@Override

@@ -66,6 +66,11 @@ public class Application {
 				rechercheTopRegion.traiter(recensement, scanner);
 				break;
 
+			case 5:
+				RechercheTopDepartement rechercheTopDepartement = new RechercheTopDepartement();
+				rechercheTopDepartement.traiter(recensement, scanner);
+				break;
+
 			default:
 				scanner.close();
 				System.out.println("Au revoir");
