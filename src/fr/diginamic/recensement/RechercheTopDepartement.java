@@ -22,6 +22,7 @@ public class RechercheTopDepartement extends MenuService {
 			Departement departement = new Departement(0, "", departementNom, 0);
 			for (Ville ville : recencement.getVilles()) {
 				if (departementNom.equals(ville.getCodeDepartement())) {
+					departement.setNomRegion(ville.getNomRegion());
 					departement.setCodeRegion(ville.getCodeRegion());
 					departement.setCodeDepartement(ville.getCodeDepartement());
 					departement.setPopulationDepartementTotale(

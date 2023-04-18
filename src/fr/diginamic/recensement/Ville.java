@@ -1,6 +1,6 @@
 package fr.diginamic.recensement;
 
-public class Ville {
+public class Ville implements Comparable<Ville> {
 
 	private int codeRegion;
 	private String nomRegion;
@@ -25,6 +25,11 @@ public class Ville {
 		return "Ville [codeRegion=" + codeRegion + ", nomRegion=" + nomRegion + ", codeDepartement=" + codeDepartement
 				+ ", codeCommune=" + codeCommune + ", nomCommune=" + nomCommune + ", populationTotale="
 				+ populationTotale + "]";
+	}
+
+	@Override
+	public int compareTo(Ville autre) {
+		return autre.getPopulationTotale() - this.populationTotale;
 	}
 
 	public int getCodeRegion() {
@@ -74,5 +79,4 @@ public class Ville {
 	public void setPopulationTotale(int populationTotale) {
 		this.populationTotale = populationTotale;
 	}
-
 }

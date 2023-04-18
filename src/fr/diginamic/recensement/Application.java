@@ -71,6 +71,21 @@ public class Application {
 				rechercheTopDepartement.traiter(recensement, scanner);
 				break;
 
+			case 6:
+				RechercheTopVilleOfDepartement rechercheTopVilleOfDepartement = new RechercheTopVilleOfDepartement();
+				rechercheTopVilleOfDepartement.traiter(recensement, scanner);
+				break;
+
+			case 7:
+				RechercheTopVilleOfRegion rechercheTopVilleOfRegion = new RechercheTopVilleOfRegion();
+				rechercheTopVilleOfRegion.traiter(recensement, scanner);
+				break;
+
+			case 8:
+				RechercheTopVilleOfFrance rechercheTopVilleOfFrance = new RechercheTopVilleOfFrance();
+				rechercheTopVilleOfFrance.traiter(recensement, scanner);
+				break;
+
 			default:
 				scanner.close();
 				System.out.println("Au revoir");
