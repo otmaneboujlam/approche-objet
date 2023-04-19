@@ -1,5 +1,8 @@
 package fr.diginamic.automates;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -7,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class JeuDeLaVie {
 
 	public static void affihcerMatrice(ArrayList<String> positionListString, int dimensionMatrice) {
+
 		for (int i = dimensionMatrice - 1; i >= 0; i--) {
 			ArrayList<Integer> listPositionY = new ArrayList<>();
 			String indexI = String.valueOf(i);
@@ -26,44 +30,33 @@ public class JeuDeLaVie {
 		}
 	}
 
-	public static void main(String[] args) throws InterruptedException {
-
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Dimension de la matrice carrée : ");
-		int dimensionMatrice = scanner.nextInt();
-		System.out.println("Nombre de cellules visibles : ");
-		int nombreCellulesVisible = scanner.nextInt();
+	public static void main(String[] args) throws InterruptedException, IOException {
 
 		ArrayList<Cellule> CellulesList = new ArrayList<>();
 		ArrayList<String> positionList = new ArrayList<>();
-
-		for (int i = 0; i < nombreCellulesVisible; i++) {
-			int x = scanner.nextInt();
-			int y = scanner.nextInt();
-			positionList.add(x + "-" + y);
-			CellulesList.add(new Cellule(x, y, true));
-		}
-
-		for (int i = 0; i < dimensionMatrice; i++) {
-			for (int j = 0; j < dimensionMatrice; j++) {
+		System.out.println("Veuillez entrer le nom du fichier de configuration :");
+		Scanner clavier = new Scanner(System.in);
+		String nomFichier = clavier.next();
+		clavier.close();
+		Path path = Paths.get("E:\\Diginamic\\JavaObjet\\TP\\all\\" + nomFichier + ".cells");
+		LoadPattern pattern = new LoadPattern();
+		pattern.loadPattern(path);
+		CellulesList = pattern.getCellulesList();
+		positionList = pattern.getPositionList();
+		for (int i = 0; i < pattern.getDim(); i++) {
+			for (int j = 0; j < pattern.getDim(); j++) {
 				if (!positionList.contains(i + "-" + j)) {
 					CellulesList.add(new Cellule(i, j, false));
 				}
 			}
 		}
-
-		scanner.close();
-
 		CellulesFactory cellules = new CellulesFactory(CellulesList, positionList);
 		System.out.println("\nGeneration : 0\n");
 		GererSurvieEtMort gererSurvieEtMort = new GererSurvieEtMort();
 		gererSurvieEtMort.traiterSurvieEtMort(cellules);
 		GererNaissance gererNaissance = new GererNaissance();
 		gererNaissance.traiterNaissane(cellules);
-//		for (Cellule cellule : cellules.getCellules()) {
-//			System.out.println(cellule);
-//		}
-		affihcerMatrice(cellules.getPositionList(), dimensionMatrice);
+		affihcerMatrice(cellules.getPositionList(), pattern.getDim());
 		TimeUnit.SECONDS.sleep(1);
 		int compteurGeneration = 1;
 		do {
@@ -81,13 +74,9 @@ public class JeuDeLaVie {
 			gererSurvieEtMort1.traiterSurvieEtMort(cellules);
 			GererNaissance gererNaissance1 = new GererNaissance();
 			gererNaissance1.traiterNaissane(cellules);
-//			for (Cellule cellule : cellules.getCellules()) {
-//				System.out.println(cellule);
-//			}
-			affihcerMatrice(cellules.getPositionList(), dimensionMatrice);
+			affihcerMatrice(cellules.getPositionList(), pattern.getDim());
 			compteurGeneration++;
 			TimeUnit.SECONDS.sleep(1);
 		} while (true);
 	}
-
 }
