@@ -6,6 +6,43 @@ public class Cellule {
 	private boolean hasRight;
 	private boolean hasTop;
 	private boolean hasBottom;
+	private boolean hasLeftTop;
+	private boolean hasRightTop;
+	private boolean hasLeftBottom;
+	private boolean hasRightBottom;
+
+	public boolean isHasLeftTop() {
+		return hasLeftTop;
+	}
+
+	public void setHasLeftTop(boolean hasLeftTop) {
+		this.hasLeftTop = hasLeftTop;
+	}
+
+	public boolean isHasRightTop() {
+		return hasRightTop;
+	}
+
+	public void setHasRightTop(boolean hasRightTop) {
+		this.hasRightTop = hasRightTop;
+	}
+
+	public boolean isHasLeftBottom() {
+		return hasLeftBottom;
+	}
+
+	public void setHasLeftBottom(boolean hasLeftBottom) {
+		this.hasLeftBottom = hasLeftBottom;
+	}
+
+	public boolean isHasRightBottom() {
+		return hasRightBottom;
+	}
+
+	public void setHasRightBottom(boolean hasRightBottom) {
+		this.hasRightBottom = hasRightBottom;
+	}
+
 	private int positionX;
 	private int positionY;
 	private boolean isVisible;

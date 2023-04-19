@@ -21,6 +21,26 @@ public class GererSurvieEtMort {
 					cellule.setHasBottom(true);
 					cellule.setNombreCelluleAdj(cellule.getNombreCelluleAdj() + 1);
 				}
+				if (cellules.getPositionList()
+						.contains((cellule.getPositionX() - 1) + "-" + (cellule.getPositionY() + 1))) {
+					cellule.setHasLeftTop(true);
+					cellule.setNombreCelluleAdj(cellule.getNombreCelluleAdj() + 1);
+				}
+				if (cellules.getPositionList()
+						.contains((cellule.getPositionX() + 1) + "-" + (cellule.getPositionY() + 1))) {
+					cellule.setHasRightTop(true);
+					cellule.setNombreCelluleAdj(cellule.getNombreCelluleAdj() + 1);
+				}
+				if (cellules.getPositionList()
+						.contains((cellule.getPositionX() - 1) + "-" + (cellule.getPositionY() - 1))) {
+					cellule.setHasLeftBottom(true);
+					cellule.setNombreCelluleAdj(cellule.getNombreCelluleAdj() + 1);
+				}
+				if (cellules.getPositionList()
+						.contains((cellule.getPositionX() + 1) + "-" + (cellule.getPositionY() - 1))) {
+					cellule.setHasRightBottom(true);
+					cellule.setNombreCelluleAdj(cellule.getNombreCelluleAdj() + 1);
+				}
 			}
 		}
 		for (Cellule cellule : cellules.getCellules()) {

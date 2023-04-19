@@ -6,6 +6,26 @@ import java.util.concurrent.TimeUnit;
 
 public class JeuDeLaVie {
 
+	public static void affihcerMatrice(ArrayList<String> positionListString, int dimensionMatrice) {
+		for (int i = dimensionMatrice - 1; i >= 0; i--) {
+			ArrayList<Integer> listPositionY = new ArrayList<>();
+			String indexI = String.valueOf(i);
+			for (String s : positionListString) {
+				if (s.split("-")[1].equals(indexI)) {
+					listPositionY.add(Integer.parseInt(s.split("-")[0]));
+				}
+			}
+			for (int j = 0; j < dimensionMatrice; j++) {
+				if (listPositionY.contains(j)) {
+					System.out.print("\u2B1B");
+				} else {
+					System.out.print("\u2B1C");
+				}
+			}
+			System.out.println();
+		}
+	}
+
 	public static void main(String[] args) throws InterruptedException {
 
 		Scanner scanner = new Scanner(System.in);
@@ -40,11 +60,11 @@ public class JeuDeLaVie {
 		gererSurvieEtMort.traiterSurvieEtMort(cellules);
 		GererNaissance gererNaissance = new GererNaissance();
 		gererNaissance.traiterNaissane(cellules);
-		for (Cellule cellule : cellules.getCellules()) {
-			System.out.println(cellule);
-		}
-		// TODO : Afficher des étoiles
-
+//		for (Cellule cellule : cellules.getCellules()) {
+//			System.out.println(cellule);
+//		}
+		affihcerMatrice(cellules.getPositionList(), dimensionMatrice);
+		TimeUnit.SECONDS.sleep(2);
 		int compteurGeneration = 1;
 		do {
 			System.out.println("\nGeneration : " + compteurGeneration + "\n");
@@ -61,10 +81,10 @@ public class JeuDeLaVie {
 			gererSurvieEtMort1.traiterSurvieEtMort(cellules);
 			GererNaissance gererNaissance1 = new GererNaissance();
 			gererNaissance1.traiterNaissane(cellules);
-			for (Cellule cellule : cellules.getCellules()) {
-				System.out.println(cellule);
-			}
-			// TODO : Afficher des étoiles
+//			for (Cellule cellule : cellules.getCellules()) {
+//				System.out.println(cellule);
+//			}
+			affihcerMatrice(cellules.getPositionList(), dimensionMatrice);
 			compteurGeneration++;
 			TimeUnit.SECONDS.sleep(2);
 		} while (true);
