@@ -64,7 +64,7 @@ public class JeuDeLaVie {
 //			System.out.println(cellule);
 //		}
 		affihcerMatrice(cellules.getPositionList(), dimensionMatrice);
-		TimeUnit.SECONDS.sleep(2);
+		TimeUnit.SECONDS.sleep(1);
 		int compteurGeneration = 1;
 		do {
 			System.out.println("\nGeneration : " + compteurGeneration + "\n");
@@ -86,7 +86,7 @@ public class JeuDeLaVie {
 //			}
 			affihcerMatrice(cellules.getPositionList(), dimensionMatrice);
 			compteurGeneration++;
-			TimeUnit.SECONDS.sleep(2);
+			TimeUnit.SECONDS.sleep(1);
 		} while (true);
 	}
 
