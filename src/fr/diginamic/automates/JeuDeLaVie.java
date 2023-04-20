@@ -23,7 +23,7 @@ public class JeuDeLaVie {
 				if (listPositionY.contains(j)) {
 					System.out.print("\u2B1B");
 				} else {
-					System.out.print("\u2B1C");
+					System.out.print(" ");
 				}
 			}
 			System.out.println();
