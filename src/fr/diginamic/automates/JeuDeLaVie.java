@@ -42,7 +42,6 @@ public class JeuDeLaVie {
 		// ".cells");
 		String filePath = ClassLoader.getSystemClassLoader()
 				.getResource("fr/diginamic/automates/resources/" + nomFichier + ".cells").getFile().substring(1);
-		System.out.println(filePath);
 		LoadPattern pattern = new LoadPattern();
 		Path path = Paths.get(filePath);
 		pattern.loadPattern(path);
