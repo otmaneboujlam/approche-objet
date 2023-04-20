@@ -34,12 +34,17 @@ public class JeuDeLaVie {
 
 		ArrayList<Cellule> CellulesList = new ArrayList<>();
 		ArrayList<String> positionList = new ArrayList<>();
-		System.out.println("Veuillez entrer le nom du fichier de configuration :");
+		System.out.println("Veuillez entrer le nom du fichier de configuration : (Voir dossier ressources)");
 		Scanner clavier = new Scanner(System.in);
 		String nomFichier = clavier.next();
 		clavier.close();
-		Path path = Paths.get("E:\\Diginamic\\JavaObjet\\TP\\all\\" + nomFichier + ".cells");
+		// Path path = Paths.get("E:\\Diginamic\\JavaObjet\\TP\\all\\" + nomFichier +
+		// ".cells");
+		String filePath = ClassLoader.getSystemClassLoader()
+				.getResource("fr/diginamic/automates/resources/" + nomFichier + ".cells").getFile().substring(1);
+		System.out.println(filePath);
 		LoadPattern pattern = new LoadPattern();
+		Path path = Paths.get(filePath);
 		pattern.loadPattern(path);
 		CellulesList = pattern.getCellulesList();
 		positionList = pattern.getPositionList();
