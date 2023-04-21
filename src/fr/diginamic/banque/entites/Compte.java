@@ -1,7 +1,17 @@
 package fr.diginamic.banque.entites;
 
+/**
+ * Class
+ * 
+ * @author Otmane
+ *
+ */
 public class Compte {
 
+	/**
+	 * Attribut numeroCompte
+	 * 
+	 */
 	private String numeroCompte;
 	private double solde;
 
@@ -14,18 +24,38 @@ public class Compte {
 		return numeroCompte + " " + solde;
 	}
 
-	public String getCompte() {
+	/**
+	 * Getter
+	 * 
+	 * @return the numeroCompte
+	 */
+	public String getNumeroCompte() {
 		return numeroCompte;
 	}
 
-	public void setCompte(String compte) {
-		this.numeroCompte = compte;
+	/**
+	 * Setter
+	 * 
+	 * @param numeroCompte the numeroCompte to set
+	 */
+	public void setNumeroCompte(String numeroCompte) {
+		this.numeroCompte = numeroCompte;
 	}
 
+	/**
+	 * Getter
+	 * 
+	 * @return the solde
+	 */
 	public double getSolde() {
 		return solde;
 	}
 
+	/**
+	 * Setter
+	 * 
+	 * @param solde the solde to set
+	 */
 	public void setSolde(double solde) {
 		this.solde = solde;
 	}
